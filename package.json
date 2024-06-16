@@ -1,5 +1,22 @@
 {
   "name": "jessicaakerman.com",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dickymoore/jessicaakerman.com.git"
+  },
+  "keywords": [
+    "artist",
+    "website",
+    "jessica",
+    "akerman",
+    "jessicaakerman"
+  ],
+  "author": "Dicky Moore and Kit Moore",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dickymoore/jessicaakerman.com/issues"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
