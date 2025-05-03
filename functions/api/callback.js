@@ -59,12 +59,15 @@ export async function onRequest(context) {
             token,
             provider,
         });
-        return new Response(responseBody, { 
+        return new Response(responseBody, {
+            status: 200,
             headers: {
-                'content-type': 'text/html;charset=UTF-8',
-            },
-            status: 200 
+              'content-type': 'text/html;charset=UTF-8',
+              // meta‐refresh in the HTTP header to bounce back to /admin
+              'refresh': '0;url=/admin/'
+            }
         });
+            
 
     } catch (error) {
         console.error(error);
