@@ -151,3 +151,24 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Eleventy output
+_site/
+public/
+
+# Temporary folders
+tmp/
+.cache/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# VSCode, JetBrains, etc.
+.vscode/
+.idea/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
