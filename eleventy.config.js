@@ -143,11 +143,11 @@ export const config = {
 
 	// These are all optional:
 	dir: {
-		input: "content",     
-		includes: "_includes",
-		data: "_data",     
-		output: "_site"
-	},
+		input:    "content",          // your Markdown & templates
+		includes: "../_includes",     // layouts now live at root/_includes
+		data:     "../_data",         // data files live at root/_data
+		output:   "_site"             // build output
+	}
 
 	// -----------------------------------------------------------------
 	// Optional items:

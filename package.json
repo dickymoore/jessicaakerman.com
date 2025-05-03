@@ -17,5 +17,8 @@
     "prismjs": "^1.30.0",
     "zod": "^3.24.3",
     "zod-validation-error": "^3.4.0"
-    }
+  },
+  "dependencies": {
+    "@zachleat/heading-anchors": "^1.0.3"
   }
+}
