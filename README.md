@@ -1,7 +1,7 @@
 # jessicaakerman.com
 jessicaakerman.com website 
 
-Jessica Akerman is a UK-based multidisciplinary artist, originally raised in Bradford and now living in Bristol, who works across textiles, sculpture, clay, drawing, painting and assemblage.
+##Jessica Akerman is a UK-based multidisciplinary artist, originally raised in Bradford and now living in Bristol, who works across textiles, sculpture, clay, drawing, painting and assemblage.
 
 Her practice investigates how the body interacts with everyday realities—labour, dressing and the awkwardness of being a body among others—often presenting fragmented limbs or abstracted forms in vibrant, market-signage-inspired palettes and playful processes that weave in histories of place.
 
