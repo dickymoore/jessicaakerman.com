@@ -2,12 +2,10 @@
   "name": "jessicaakerman.com",
   "version": "1.0.0",
   "scripts": {
-    "build": "next build",
-    "start": "next start"
+    "build": "npx @11ty/eleventy",
+    "start": "npx @11ty/eleventy --serve"
   },
-  "dependencies": {
-    "next": "^14.1.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"	
-    }
+  "devDependencies": {
+    "@11ty/eleventy": "^3",
+  }
 }
