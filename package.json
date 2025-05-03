@@ -3,7 +3,7 @@
   "name": "jessicaakerman.com",
   "version": "1.0.0",
   "scripts": {
-    "build": "npx @11ty/eleventy",
+    "build": "cross-env ELEVENTY_RUN_MODE=build npx @11ty/eleventy",
     "start": "npx @11ty/eleventy --serve"
   },
   "devDependencies": {
