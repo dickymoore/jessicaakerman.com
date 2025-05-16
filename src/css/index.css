@@ -130,7 +130,7 @@ header {
 }
 
 .logo {
-	max-width: 600px;
+	max-width: 800px;
 	margin-bottom: 1.5rem;
 }
 
@@ -160,6 +160,8 @@ footer {
 /* Nav */
 .nav {
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	gap: 1.5em;
 	padding: 0;
 	margin: 0;
@@ -260,6 +262,76 @@ footer {
 }
 
 .footer-logo {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
+}
+
+footer p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 60px; /* Match the height of the logo */
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .footer-logo {
+        margin-bottom: 0.5rem;
+    }
+    
+    footer p {
+        height: auto;
+        text-align: center;
+    }
+}
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+    .logo {
+        max-width: 90%; /* Limit logo width on small screens */
+    }
+    
+    .nav {
+        gap: 1em;
+        font-size: 0.8rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 1rem 0.5rem;
+    }
+    
+    .logo {
+        max-width: 95%;
+        margin-bottom: 1rem;
+    }
+    
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5em;
+    }
+    
+    .nav-item {
+        margin-bottom: 0.5em;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .footer-logo {
+        margin-bottom: 0.5rem;
+    }
 }

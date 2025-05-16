@@ -28,6 +28,39 @@ export default async function(eleventyConfig) {
 	// Run Eleventy when these files change:
 	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 
+	eleventyConfig.addShortcode("artworkImage", function(title, size = "full") {
+		const artwork = this.ctx.artwork;
+		if (!artwork.images[title]) {
+		  console.warn(`Warning: No image found for "${title}"`);
+		  return "";
+		}
+		
+		const image = artwork.images[title];
+		const url = `${artwork.baseUrl}${image.filename}`;
+		
+		return `<img src="${url}" alt="${image.alt}" loading="lazy" decoding="async">`;
+	  });
+
+	  eleventyConfig.addShortcode("artworkImage", function(title, size = "medium") {
+		const artwork = this.ctx.artwork;
+		
+		if (!artwork.images[title]) {
+		  console.warn(`Warning: No image found for "${title}"`);
+		  return "";
+		}
+		
+		const image = artwork.images[title];
+		const url = `${artwork.baseUrl}${image.filename}`;
+		
+		// If width and height are available, include them for better CLS
+		const dimensions = image.width && image.height 
+		  ? `width="${image.width}" height="${image.height}"` 
+		  : '';
+		
+		return `<img src="${url}" alt="${image.alt}" ${dimensions} loading="lazy" decoding="async">`;
+	  });
+	  
+
 	// Watch CSS files
 	eleventyConfig.addWatchTarget("css/**/*.css");
 	// Watch images for the image pipeline.

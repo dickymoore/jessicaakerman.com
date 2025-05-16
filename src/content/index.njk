@@ -1,3 +1,4 @@
+<!-- content/index.njk -->
 ---js
 const eleventyNavigation = {
 	key: "Home",
@@ -6,27 +7,32 @@ const eleventyNavigation = {
 ---
 
 <div class="projects-preview">
-  <!-- You can replace this with actual projects/artworks -->
   <h2>Recent Work</h2>
   
   <div class="projects-grid">
     <article class="project-item">
       <div class="project-image">
-        <img src="/img/work-1.jpg" alt="Artwork 1" width="400" height="400">
+        <img src="{{ artwork.baseUrl }}Engorged.jpg" 
+             alt="Spheres in Pink, 2025 - an artwork by Jessica Akerman" 
+             width="400" height="400" loading="lazy" decoding="async">
       </div>
       <h3 class="project-title">Spheres in Pink, 2025</h3>
     </article>
     
     <article class="project-item">
       <div class="project-image">
-        <img src="/img/work-2.jpg" alt="Artwork 2" width="400" height="400">
+        <img src="{{ artwork.baseUrl }}Fit+in.jpg" 
+             alt="Urban Installation, 2024 - an artwork by Jessica Akerman" 
+             width="400" height="400" loading="lazy" decoding="async">
       </div>
       <h3 class="project-title">Urban Installation, 2024</h3>
     </article>
     
     <article class="project-item">
       <div class="project-image">
-        <img src="/img/work-3.jpg" alt="Artwork 3" width="400" height="400">
+        <img src="{{ artwork.baseUrl }}Josiah+Heads.jpg" 
+             alt="Paper Series #4, 2024 - an artwork by Jessica Akerman" 
+             width="400" height="400" loading="lazy" decoding="async">
       </div>
       <h3 class="project-title">Paper Series #4, 2024</h3>
     </article>
