@@ -1,4 +1,3 @@
-<!-- content/index.njk -->
 ---js
 const eleventyNavigation = {
 	key: "Home",
@@ -12,27 +11,45 @@ const eleventyNavigation = {
   <div class="projects-grid">
     <article class="project-item">
       <div class="project-image">
-        <img src="{{ artwork.baseUrl }}Engorged.jpg" 
-             alt="Spheres in Pink, 2025 - an artwork by Jessica Akerman" 
-             width="400" height="400" loading="lazy" decoding="async">
+        {% if artwork.images['Spheres in Pink'] %}
+          <img src="{{ artwork.baseUrl }}{{ artwork.images['Spheres in Pink'].filename }}" 
+               alt="{{ artwork.images['Spheres in Pink'].alt }}" 
+               width="400" height="400" loading="lazy" decoding="async">
+        {% else %}
+          <img src="{{ artwork.baseUrl }}Engorged.jpg" 
+               alt="Spheres in Pink - an artwork by Jessica Akerman" 
+               width="400" height="400" loading="lazy" decoding="async">
+        {% endif %}
       </div>
       <h3 class="project-title">Spheres in Pink, 2025</h3>
     </article>
     
     <article class="project-item">
       <div class="project-image">
-        <img src="{{ artwork.baseUrl }}Fit+in.jpg" 
-             alt="Urban Installation, 2024 - an artwork by Jessica Akerman" 
-             width="400" height="400" loading="lazy" decoding="async">
+        {% if artwork.images['Urban Installation'] %}
+          <img src="{{ artwork.baseUrl }}{{ artwork.images['Urban Installation'].filename }}" 
+               alt="{{ artwork.images['Urban Installation'].alt }}" 
+               width="400" height="400" loading="lazy" decoding="async">
+        {% else %}
+          <img src="{{ artwork.baseUrl }}Fit+in.jpg" 
+               alt="Urban Installation - an artwork by Jessica Akerman" 
+               width="400" height="400" loading="lazy" decoding="async">
+        {% endif %}
       </div>
       <h3 class="project-title">Urban Installation, 2024</h3>
     </article>
     
     <article class="project-item">
       <div class="project-image">
-        <img src="{{ artwork.baseUrl }}Josiah+Heads.jpg" 
-             alt="Paper Series #4, 2024 - an artwork by Jessica Akerman" 
-             width="400" height="400" loading="lazy" decoding="async">
+        {% if artwork.images['Paper Series #4'] %}
+          <img src="{{ artwork.baseUrl }}{{ artwork.images['Paper Series #4'].filename }}" 
+               alt="{{ artwork.images['Paper Series #4'].alt }}" 
+               width="400" height="400" loading="lazy" decoding="async">
+        {% else %}
+          <img src="{{ artwork.baseUrl }}Josiah+Heads.jpg" 
+               alt="Paper Series #4 - an artwork by Jessica Akerman" 
+               width="400" height="400" loading="lazy" decoding="async">
+        {% endif %}
       </div>
       <h3 class="project-title">Paper Series #4, 2024</h3>
     </article>
@@ -44,3 +61,15 @@ const eleventyNavigation = {
   <p>Jessica Akerman is a contemporary artist working across sculpture, installation, and works on paper. Her practice explores themes of materiality, space, and cultural memory.</p>
   <p><a href="/about/">Read more about the artist →</a></p>
 </div>
+
+{% if false %}
+<!-- Hidden diagnostic information -->
+<div style="background: #f0f0f0; padding: 10px; margin: 10px 0; font-family: monospace; font-size: 12px; display: none;">
+  <h4>Debugging Information</h4>
+  <p>Base URL: {{ artwork.baseUrl }}</p>
+  <p>Available image keys: {{ artwork.images | keys | join(', ') }}</p>
+  <p>Spheres in Pink: {{ artwork.images['Spheres in Pink'] | dump }}</p>
+  <p>Urban Installation: {{ artwork.images['Urban Installation'] | dump }}</p>
+  <p>Paper Series #4: {{ artwork.images['Paper Series #4'] | dump }}</p>
+</div>
+{% endif %}

@@ -28,20 +28,7 @@ export default async function(eleventyConfig) {
 	// Run Eleventy when these files change:
 	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 
-	eleventyConfig.addShortcode("artworkImage", function(title, size = "full") {
-		const artwork = this.ctx.artwork;
-		if (!artwork.images[title]) {
-		  console.warn(`Warning: No image found for "${title}"`);
-		  return "";
-		}
-		
-		const image = artwork.images[title];
-		const url = `${artwork.baseUrl}${image.filename}`;
-		
-		return `<img src="${url}" alt="${image.alt}" loading="lazy" decoding="async">`;
-	  });
-
-	  eleventyConfig.addShortcode("artworkImage", function(title, size = "medium") {
+	eleventyConfig.addShortcode("artworkImage", function(title, size = "medium") {
 		const artwork = this.ctx.artwork;
 		
 		if (!artwork.images[title]) {
@@ -58,8 +45,7 @@ export default async function(eleventyConfig) {
 		  : '';
 		
 		return `<img src="${url}" alt="${image.alt}" ${dimensions} loading="lazy" decoding="async">`;
-	  });
-	  
+	});
 
 	// Watch CSS files
 	eleventyConfig.addWatchTarget("css/**/*.css");
@@ -90,6 +76,9 @@ export default async function(eleventyConfig) {
 	eleventyConfig.addPlugin(pluginNavigation);
 	eleventyConfig.addPlugin(HtmlBasePlugin);
 	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
+	
+	// Add filters plugin
+	eleventyConfig.addPlugin(pluginFilters);
 
 	eleventyConfig.addPlugin(feedPlugin, {
 		type: "atom", // or "rss", "json"
@@ -137,11 +126,21 @@ export default async function(eleventyConfig) {
 		},
 	});
 
-	// Filters
-	eleventyConfig.addPlugin(pluginFilters);
+	// Add tag collection
+	eleventyConfig.addCollection("tagList", function(collection) {
+		let tagSet = new Set();
+		collection.getAll().forEach(item => {
+			(item.data.tags || []).forEach(tag => {
+				if (["all", "posts", "post", "nav", "tagList"].indexOf(tag) === -1) {
+					tagSet.add(tag);
+				}
+			});
+		});
+		return [...tagSet].sort();
+	});
 
 	eleventyConfig.addPlugin(IdAttributePlugin, {
-		// by default we use Eleventy’s built-in `slugify` filter:
+		// by default we use Eleventy's built-in `slugify` filter:
 		// slugify: eleventyConfig.getFilter("slugify"),
 		// selector: "h1,h2,h3,h4,h5,h6", // default
 	});
@@ -197,4 +196,3 @@ export const config = {
 
 	// pathPrefix: "/",
 };
-
