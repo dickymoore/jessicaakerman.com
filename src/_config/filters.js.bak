@@ -41,4 +41,3 @@ export default function(eleventyConfig) {
 		(strings || []).sort((b, a) => b.localeCompare(a))
 	);
 };
-
