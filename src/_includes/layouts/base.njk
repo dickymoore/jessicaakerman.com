@@ -1,54 +1,55 @@
 <!doctype html>
 <html lang="{{ metadata.language }}">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ title or metadata.title }}</title>
-<meta name="description" content="{{ description or metadata.description }}">
-<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
-<link rel="icon" href="/logos/JessicaAkermanSquare.svg" type="image/svg+xml">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or metadata.title }}</title>
+  <meta name="description" content="{{ description or metadata.description }}">
+  <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
+  <link rel="icon" href="/logos/JessicaAkermanSquare.svg" type="image/svg+xml">
 
-{#- Add the contents of CSS files to the bundle #}
-<style>{% include "css/index.css" %}</style>
-
-{#- Render the CSS bundle using inlined CSS #}
-<style>{% getBundle "css" %}</style>
+  {#— Add the contents of CSS files to the bundle —#}
+  <style>{% include "css/index.css" %}</style>
+  {#— Render the CSS bundle using inlined CSS —#}
+  <style>{% getBundle "css" %}</style>
 </head>
 <body>
-<a href="#skip" class="visually-hidden">Skip to main content</a>
+  <a href="#skip" class="visually-hidden">Skip to main content</a>
 
-<header>
-<a href="/" class="logo">
-  <img src="/logos/JessicaAkermanRectangle.svg" alt="{{ metadata.title }}" width="800" height="133">
-</a>
+  <header>
+    <a href="/" class="logo">
+      <img src="/logos/JessicaAkermanRectangle.svg" alt="{{ metadata.title }}" width="800" height="133">
+    </a>
 
-<nav>
-<h2 class="visually-hidden">Navigation menu</h2>
-<ul class="nav">
-<li class="nav-item"><a href="/"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a></li>
-<li class="nav-item"><a href="/sculpture/"{% if '/sculpture/' in page.url %} aria-current="page"{% endif %}>Sculpture</a></li>
-<li class="nav-item"><a href="/public-commissions/"{% if '/public-commissions/' in page.url %} aria-current="page"{% endif %}>Public commissions</a></li>
-<li class="nav-item"><a href="/works-on-paper/"{% if '/works-on-paper/' in page.url %} aria-current="page"{% endif %}>Works on paper</a></li>
-<li class="nav-item"><a href="/shop/"{% if '/shop/' in page.url %} aria-current="page"{% endif %}>SHOP</a></li>
-<li class="nav-item"><a href="/archive/"{% if '/archive/' in page.url %} aria-current="page"{% endif %}>Archive</a></li>
-<li class="nav-item"><a href="/about/"{% if '/about/' in page.url %} aria-current="page"{% endif %}>About</a></li>
-<li class="nav-item"><a href="/connect/"{% if '/connect/' in page.url %} aria-current="page"{% endif %}>Connect</a></li>
-<li class="nav-item"><a href="/texts/"{% if '/texts/' in page.url %} aria-current="page"{% endif %}>Texts</a></li>
-</ul>
-</nav>
-</header>
+    <nav>
+      <h2 class="visually-hidden">Navigation menu</h2>
+      <ul class="nav">
+        {%- for item in collections.all | eleventyNavigation -%}
+          <li class="nav-item">
+            <a href="{{ item.url }}"
+               {% if page.url == item.url %}aria-current="page"{% endif %}>
+              {{ item.data.eleventyNavigation.key }}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  </header>
 
-<main id="skip">
-{{ content | safe }}
-</main>
+  <main id="skip">
+    {{ content | safe }}
+  </main>
 
-<footer>
-<div class="footer-content">
-    <img src="/logos/JessicaAkermanSquare.svg" alt="Jessica Akerman logo" width="60" height="60" class="footer-logo">
-    <p>&copy; 2025 {{ metadata.author.name }} | All rights reserved</p>
-</div>
-</footer>
+  <footer>
+    <div class="footer-content">
+      <img src="/logos/JessicaAkermanSquare.svg"
+           alt="Jessica Akerman logo"
+           width="60" height="60"
+           class="footer-logo">
+      <p>&copy; {{ "now" | date("yyyy") }} {{ metadata.author.name }} | All rights reserved</p>
+    </div>
+  </footer>
 
-<script type="module" src="{% getBundleFileUrl "js" %}"></script>
+  <script type="module" src="{% getBundleFileUrl "js" %}"></script>
 </body>
 </html>

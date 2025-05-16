@@ -3,196 +3,143 @@ import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
-
 import pluginFilters from "./_config/filters.js";
+import { DateTime } from "luxon";
+import util from "util";
 
-/** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
+/**
+ * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
+ */
 export default async function(eleventyConfig) {
-	// Drafts, see also _data/eleventyDataSchema.js
-	eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
-		if(data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
-			return false;
-		}
-	});
+  // ─── Preprocessors ───────────────────────────────────────────────────────
+  // Drafts: skip pages with `draft: true` when building for production
+  eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
+    if (data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
+      return false;
+    }
+    return content;
+  });
 
-	// Copy the contents of the `public` folder to the output folder
-	// For example, `./public/css/` ends up in `_site/css/`
-	eleventyConfig
-		.addPassthroughCopy({
-			"./public/": "/",
-			"./public/img/": "/img/",
-			"./logos/": "/logos/"  // Make sure this path exists and contains your logo files
-		})
-		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl");
+  // ─── Passthrough Copy ────────────────────────────────────────────────────
+  eleventyConfig
+    .addPassthroughCopy({
+      "./public/": "/",
+      "./public/img/": "/img/",
+      "./logos/": "/logos/"
+    })
+    .addPassthroughCopy("./content/feed/pretty-atom-feed.xsl");
 
-	// Run Eleventy when these files change:
-	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
+  // ─── Watch Targets ───────────────────────────────────────────────────────
+  eleventyConfig.addWatchTarget("css/**/*.css");
+  eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpg,jpeg,gif}");
 
-	eleventyConfig.addShortcode("artworkImage", function(title, size = "medium") {
-		const artwork = this.ctx.artwork;
-		
-		if (!artwork.images[title]) {
-		  console.warn(`Warning: No image found for "${title}"`);
-		  return "";
-		}
-		
-		const image = artwork.images[title];
-		const url = `${artwork.baseUrl}${image.filename}`;
-		
-		// If width and height are available, include them for better CLS
-		const dimensions = image.width && image.height 
-		  ? `width="${image.width}" height="${image.height}"` 
-		  : '';
-		
-		return `<img src="${url}" alt="${image.alt}" ${dimensions} loading="lazy" decoding="async">`;
-	});
+  // ─── Bundling (per-page CSS/JS) ─────────────────────────────────────────
+  eleventyConfig.addBundle("css", {
+    toFileDirectory: "dist",
+    bundleHtmlContentFromSelector: "style"
+  });
+  eleventyConfig.addBundle("js", {
+    toFileDirectory: "dist",
+    bundleHtmlContentFromSelector: "script"
+  });
 
-	// Watch CSS files
-	eleventyConfig.addWatchTarget("css/**/*.css");
-	// Watch images for the image pipeline.
-	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpg,jpeg,gif}");
+  // ─── Shortcodes ─────────────────────────────────────────────────────────
+  eleventyConfig.addShortcode("artworkImage", function(title, size = "medium") {
+    const artwork = this.ctx.artwork;
+    if (!artwork.images[title]) {
+      console.warn(`Warning: No image found for "${title}"`);
+      return "";
+    }
+    const img = artwork.images[title];
+    const url = `${artwork.baseUrl}${img.filename}`;
+    const dims = img.width && img.height
+      ? `width="${img.width}" height="${img.height}"`
+      : "";
+    return `<img src="${url}" alt="${img.alt}" ${dims} loading="lazy" decoding="async">`;
+  });
 
-	// Per-page bundles, see https://github.com/11ty/eleventy-plugin-bundle
-	// Bundle <style> content and adds a {% css %} paired shortcode
-	eleventyConfig.addBundle("css", {
-		toFileDirectory: "dist",
-		// Add all <style> content to `css` bundle (use eleventy:ignore to opt-out)
-		// supported selectors: https://www.npmjs.com/package/posthtml-match-helper
-		bundleHtmlContentFromSelector: "style",
-	});
+  eleventyConfig.addShortcode("currentBuildDate", () => {
+    return new Date().toISOString();
+  });
 
-	// Bundle <script> content and adds a {% js %} paired shortcode
-	eleventyConfig.addBundle("js", {
-		toFileDirectory: "dist",
-		// Add all <script> content to the `js` bundle (use eleventy:ignore to opt-out)
-		// supported selectors: https://www.npmjs.com/package/posthtml-match-helper
-		bundleHtmlContentFromSelector: "script",
-	});
+  // ─── Plugins ────────────────────────────────────────────────────────────
+  eleventyConfig.addPlugin(pluginSyntaxHighlight, { preAttributes: { tabindex: 0 } });
+  eleventyConfig.addPlugin(pluginNavigation);
+  eleventyConfig.addPlugin(HtmlBasePlugin);
+  eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
+  eleventyConfig.addPlugin(pluginFilters);
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "atom",
+    outputPath: "/feed/feed.xml",
+    stylesheet: "pretty-atom-feed.xsl",
+    templateData: {
+      eleventyNavigation: { key: "Feed", order: 4 }
+    },
+    collection: { name: "posts", limit: 10 },
+    metadata: {
+      language: "en",
+      title: "Blog Title",
+      subtitle: "This is a longer description about your blog.",
+      base: "https://example.com/",
+      author: { name: "Your Name" }
+    }
+  });
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    formats: ["avif", "webp", "auto"],
+    failOnError: false,
+    htmlOptions: { imgAttributes: { loading: "lazy", decoding: "async" } },
+    sharpOptions: { animated: true }
+  });
+  eleventyConfig.addPlugin(IdAttributePlugin, {
+    // Default slugify and selectors will be used
+  });
 
-	// Official plugins
-	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
-		preAttributes: { tabindex: 0 }
-	});
-	eleventyConfig.addPlugin(pluginNavigation);
-	eleventyConfig.addPlugin(HtmlBasePlugin);
-	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
-	
-	// Add filters plugin
-	eleventyConfig.addPlugin(pluginFilters);
+  // ─── Filters ────────────────────────────────────────────────────────────
+  // date("yyyy") for Nunjucks
+  eleventyConfig.addFilter("date", (dateObj, fmt = "yyyy") => {
+    const d = dateObj === "now" ? new Date() : dateObj;
+    return DateTime.fromJSDate(d, { zone: "utc" }).toFormat(fmt);
+  });
+  // readableDate: "dd LLL yyyy"
+  eleventyConfig.addFilter("readableDate", dateObj =>
+    DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("dd LLL yyyy")
+  );
+  // htmlDateString: "yyyy-LL-dd"
+  eleventyConfig.addFilter("htmlDateString", dateObj =>
+    DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd")
+  );
+  // debug helper
+  eleventyConfig.addFilter("dump", obj =>
+    util.inspect(obj, { showHidden: false, depth: 5, colors: false })
+  );
 
-	eleventyConfig.addPlugin(feedPlugin, {
-		type: "atom", // or "rss", "json"
-		outputPath: "/feed/feed.xml",
-		stylesheet: "pretty-atom-feed.xsl",
-		templateData: {
-			eleventyNavigation: {
-				key: "Feed",
-				order: 4
-			}
-		},
-		collection: {
-			name: "posts",
-			limit: 10,
-		},
-		metadata: {
-			language: "en",
-			title: "Blog Title",
-			subtitle: "This is a longer description about your blog.",
-			base: "https://example.com/",
-			author: {
-				name: "Your Name"
-			}
-		}
-	});
+  // ─── Collections ────────────────────────────────────────────────────────
+  eleventyConfig.addCollection("tagList", collection => {
+    const tagSet = new Set();
+    collection.getAll().forEach(item => {
+      (item.data.tags || []).forEach(tag => {
+        if (!["all", "posts", "post", "nav", "tagList"].includes(tag)) {
+          tagSet.add(tag);
+        }
+      });
+    });
+    return [...tagSet].sort();
+  });
+  eleventyConfig.addCollection("wpPages", collection =>
+    collection.getAll().filter(i => i.data.eleventyNavigation?.order === 10)
+  );
 
-	// Image optimization: https://www.11ty.dev/docs/plugins/image/#eleventy-transform
-	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-		// Output formats for each image.
-		formats: ["avif", "webp", "auto"],
-
-		// widths: ["auto"],
-
-		failOnError: false,
-		htmlOptions: {
-			imgAttributes: {
-				// e.g. <img loading decoding> assigned on the HTML tag will override these values.
-				loading: "lazy",
-				decoding: "async",
-			}
-		},
-
-		sharpOptions: {
-			animated: true,
-		},
-	});
-
-	// Add tag collection
-	eleventyConfig.addCollection("tagList", function(collection) {
-		let tagSet = new Set();
-		collection.getAll().forEach(item => {
-			(item.data.tags || []).forEach(tag => {
-				if (["all", "posts", "post", "nav", "tagList"].indexOf(tag) === -1) {
-					tagSet.add(tag);
-				}
-			});
-		});
-		return [...tagSet].sort();
-	});
-
-	eleventyConfig.addPlugin(IdAttributePlugin, {
-		// by default we use Eleventy's built-in `slugify` filter:
-		// slugify: eleventyConfig.getFilter("slugify"),
-		// selector: "h1,h2,h3,h4,h5,h6", // default
-	});
-
-	eleventyConfig.addShortcode("currentBuildDate", () => {
-		return (new Date()).toISOString();
-	});
-
-	// Features to make your build faster (when you need them)
-
-	// If your passthrough copy gets heavy and cumbersome, add this line
-	// to emulate the file copy on the dev server. Learn more:
-	// https://www.11ty.dev/docs/copy/#emulate-passthrough-copy-during-serve
-
-	// eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
-};
-
-export const config = {
-	// Control which files Eleventy will process
-	// e.g.: *.md, *.njk, *.html, *.liquid
-	templateFormats: [
-		"md",
-		"njk",
-		"html",
-		"liquid",
-		"11ty.js",
-	],
-
-	// Pre-process *.md files with: (default: `liquid`)
-	markdownTemplateEngine: "njk",
-
-	// Pre-process *.html files with: (default: `liquid`)
-	htmlTemplateEngine: "njk",
-
-	// These are all optional:
-	dir: {
-		input: "content",          // default: "."
-		includes: "../_includes",  // default: "_includes" (`input` relative)
-		data: "../_data",          // default: "_data" (`input` relative)
-		output: "_site"
-	},
-
-	// -----------------------------------------------------------------
-	// Optional items:
-	// -----------------------------------------------------------------
-
-	// If your site deploys to a subdirectory, change `pathPrefix`.
-	// Read more: https://www.11ty.dev/docs/config/#deploy-to-a-subdirectory-with-a-path-prefix
-
-	// When paired with the HTML <base> plugin https://www.11ty.dev/docs/plugins/html-base/
-	// it will transform any absolute URLs in your HTML to include this
-	// folder name and does **not** affect where things go in the output folder.
-
-	// pathPrefix: "/",
-};
+  // ─── Return final Eleventy config ──────────────────────────────────────
+  return {
+    templateFormats: ["md", "njk", "html", "liquid", "11ty.js"],
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
+    dataTemplateEngine: "njk",
+    dir: {
+      input: "content",
+      includes: "../_includes",
+      data: "../_data",
+      output: "_site"
+    }
+  };
+}

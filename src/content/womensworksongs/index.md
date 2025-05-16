@@ -1,0 +1,8 @@
+---
+title: "Women's Work Songs"
+layout: layouts/base.njk
+eleventyNavigation:
+  key: "Women's Work Songs"
+  order: 10
+date: 2024-02-01
+---![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Made-in-Roath-Waulking-Songs-2014-JAkerman.jpg)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1460576786813-FMNC05TB62GXKRKQKI2Z/image-asset.jpeg/img.jpg)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1460576553142-4CJQVT4BWOMI3KBHIPHS/image-asset.jpeg/img.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/20140504_082144.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/ClogDanceAftermath1.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/21-Clog-dance-in-graphite-still-2014-JAkerman.jpg)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1460551187685-928GTCBMGQ9296G72WFY/image-asset.jpeg/img.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/WaulkingSongGestures(WithFrankieArmstrong)_150x200_PerformanceWithVoiceMovementAndPlaydough.jpg)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1466372064780-DULW7O0I121PO9D768WQ/Blue+Capston.jpg)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1466371511532-RAOYJKVH2EPNWM2NU1KK/Blue+Halyard.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/21-Clog-dance-in-graphite-still-2014-JAkerman.jpg)

@@ -1,0 +1,8 @@
+---
+title: "Rochford Art Collector Series"
+layout: layouts/base.njk
+eleventyNavigation:
+  key: "Rochford Art Collector Series"
+  order: 10
+date: 2022-12-22
+---![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1460554352114-N7OP96ZY6TJ5DW4GA1TD/9+Living.png)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1460554351331-6EQELCSSAPAJZ0GIBJM7/8+And.png)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1460554350984-XLD2A478GERPQDJIT2CB/7+Working.png)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1460554350411-NG5P3B3YC29EYYT3QG98/6+Of.png)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1460554350012-TZHQUSJ8HBKJBBF3V1UR/5+Standards.png)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1460554348994-7XGU2Q0R4OZ34I5W51DP/4+Your.png)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1460554349536-PN61GLGORM091L7DJA1G/3+Change.png)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1460554347733-IPTXVY97SF6HP93O8BEL/2+To.png)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1460554347966-MMDQ8LNUAIBPXYSXQVOC/1+Start.png)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/StartToChangeYourStandardsOfWorkingAndLiving(RochfordArtCollectorSeries)_21.0x8.1_DigitalPrintOnCard.jpg)

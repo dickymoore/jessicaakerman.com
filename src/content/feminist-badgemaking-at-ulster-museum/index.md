@@ -1,0 +1,8 @@
+---
+title: "Feminist badgemaking at Ulster Museum"
+layout: layouts/base.njk
+eleventyNavigation:
+  key: "Feminist badgemaking at Ulster Museum"
+  order: 10
+date: 2018-11-11
+---![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant19.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant18.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant16.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant17.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant14.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant13.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant12.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant11.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant10.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant9.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant8.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant7.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant6.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant5.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant4.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant3.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant2.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Badge-participant1.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/FeministbadgemakingatUlsterMuseum-JA-web.png)

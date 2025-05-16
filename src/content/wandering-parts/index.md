@@ -1,0 +1,8 @@
+---
+title: "Wandering parts"
+layout: layouts/base.njk
+eleventyNavigation:
+  key: "Wandering parts"
+  order: 10
+date: 2023-10-10
+---![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1671704256072-7BURHWORL1JCMA1DCX7G/image-asset.jpeg/img.jpg)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1671700909706-FUEH33RMVDHAH94S2GJ7/15%25bubblegum+Jessica+Ackerman+17a+Dec+2022+Studio+Visit+Jo+Hounsome+Photography+copy.jpeg)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1671700907676-25TFDC1I3E2BZ112CPRU/12bubblegum+Jessica+Ackerman+18a+Dec+2022+Studio+Visit+Jo+Hounsome+Photography+copy.jpeg)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1671700907514-XHPLFM73CCVUO5NV2M2J/12bubblegum+Jessica+Ackerman+15a+Dec+2022+Studio+Visit+Jo+Hounsome+Photography+copy.jpeg)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1671700865736-79QEAHO35WCUFEJL5TEK/Top+blinds.jpeg)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1671700856571-7WJNAFN6HT9MEDXT4D35/Pierced+Tongue+web.jpeg)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1671700856125-NQQIE8ENFZWKTVX9HBTT/Leg+close+up+web.jpeg)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1671700854897-0MET7X73JWSY3Q21O1TC/Full+length+blinds+web.jpeg)![](http://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1671700854977-OBWVHD0P5ICIHJ03PEC2/Cervix+web.jpeg)
