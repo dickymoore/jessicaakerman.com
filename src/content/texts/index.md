@@ -59,7 +59,7 @@ Paralysis is enacted as a series of strict commands that condemn any deviation f
 
 _Laurence Counihan is an Irish-Filipino writer and critic, who is currently a PhD candidate and teaching assistant with the History of Art department at University College Cork. His research is located at the intersection between art, technology and continental philosophy._
 
-![](https://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1645697621962-I8RJDEFEDB60RPLLRTN8/Profile+editions+spread.jpg)
+![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Profile+editions+spread.jpg)
 
 **Dazzle Banner, made with Made in Roath and women and girls in Cardiff, featured in Women Making History, published by Profile Editions.**
 

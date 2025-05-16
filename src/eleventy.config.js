@@ -63,6 +63,7 @@ export default async function(eleventyConfig) {
   });
 
   // ─── Plugins ────────────────────────────────────────────────────────────
+  eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(pluginSyntaxHighlight, { preAttributes: { tabindex: 0 } });
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(HtmlBasePlugin);

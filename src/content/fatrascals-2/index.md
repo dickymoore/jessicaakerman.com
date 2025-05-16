@@ -216,9 +216,9 @@ Instagram: @jessica.akerman | [http://jessicaakerman.com/](http://jessicaakerman
 
 **_Automated electric blinds, linen, acrylic, gouache_**
 
-![Fat Fingers (and Boobs), 2023 (Copy)](https://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1688658286166-38VRJAIZVFR62J6U22MG/WhatsApp+Image+2023-07-06+at+16.30.18.jpeg)
+![Fat Fingers (and Boobs), 2023 (Copy)](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/WhatsApp+Image+2023-07-06+at+16.30.18.jpeg)
 
-![Fat Fingers (and Boobs), 2023 (Copy)](https://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1688658286166-38VRJAIZVFR62J6U22MG/WhatsApp+Image+2023-07-06+at+16.30.18.jpeg)
+![Fat Fingers (and Boobs), 2023 (Copy)](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/WhatsApp+Image+2023-07-06+at+16.30.18.jpeg)
 
 ### Fat Fingers (and Boobs), 2023 (Copy)
 

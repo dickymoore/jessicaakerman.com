@@ -24,15 +24,28 @@
     <nav>
       <h2 class="visually-hidden">Navigation menu</h2>
       <ul class="nav">
-        {%- for item in collections.all | eleventyNavigation -%}
-          <li class="nav-item">
-            <a href="{{ item.url }}"
-               {% if page.url == item.url %}aria-current="page"{% endif %}>
-              {{ item.data.eleventyNavigation.key }}
-            </a>
-          </li>
-        {%- endfor -%}
-      </ul>
+  {%- for item in collections.all | eleventyNavigation -%}
+    <li class="nav-item">
+      <a href="{{ item.url }}" {% if page.url==item.url %}aria-current="page"{% endif %}>
+        {{ item.data.eleventyNavigation.key }}
+      </a>
+
+      {%- if item.children and item.children | length -%}
+        <ul class="subnav">
+          {%- for child in item.children -%}
+            <li class="nav-item">
+              <a href="{{ child.url }}"
+                 {% if page.url==child.url %}aria-current="page"{% endif %}>
+                {{ child.data.eleventyNavigation.key }}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </li>
+  {%- endfor -%}
+</ul>
+
     </nav>
   </header>
 

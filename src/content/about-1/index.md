@@ -5,7 +5,7 @@ eleventyNavigation:
   key: "about"
   order: 10
 date: 2016-03-03
----![](https://images.squarespace-cdn.com/content/v1/56cddecb2b8ddeef8fbf9088/1457037288065-KOKBGL42WZ8BK0H2Y2I6/image-asset.jpeg)
+---![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/image-asset.jpeg)
 
 # Fabrice Wexley
 

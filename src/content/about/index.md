@@ -5,7 +5,7 @@ eleventyNavigation:
   key: "About"
   order: 10
 date: 2019-05-09
----![](https://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/1499089817466-5O68KEUT8L3FL7Y7KQS8/image-asset.jpeg)
+---![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/image-asset.jpeg)
 
 Photo by Fern Insh, 2017.
 

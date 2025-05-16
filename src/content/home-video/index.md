@@ -5,7 +5,7 @@ eleventyNavigation:
   key: "Home - Video"
   order: 10
 date: 2023-11-01
----![](https://images.squarespace-cdn.com/content/v1/570e284d4c2f85f6fd8df7c9/c7725a06-753e-4589-9024-2d23b94af7eb/20%25Fat+Rascals+invitation+-+Jessica+Akerman+copy.jpeg)
+---![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/20%25Fat+Rascals+invitation+-+Jessica+Akerman+copy.jpeg)
 
 Huge thanks to Kirstie Gregory of the Henry Moore Institute in Leeds for her exhibition review of Fat Rascals - please read below.
 
