@@ -6,7 +6,7 @@
 <title>{{ title or metadata.title }}</title>
 <meta name="description" content="{{ description or metadata.description }}">
 <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
-<link rel="icon" href="/logos/JessicaAkermanSquare.svg" type="image/svg+xml">
+<link rel="icon" href="/img/favicon.ico" type="image/x-icon">
 
 {#- Add the contents of CSS files to the bundle #}
 <style>{% include "css/index.css" %}</style>
@@ -19,7 +19,7 @@
 
 <header>
 <a href="/" class="logo">
-  <img src="/logos/JessicaAkermanRectangle.svg" alt="{{ metadata.title }}" width="600" height="100">
+<img src="/logos/JessicaAkermanRectangle.svg" alt="{{ metadata.title }}" width="600" height="100">
 </a>
 
 <nav>
@@ -43,10 +43,7 @@
 </main>
 
 <footer>
-<div class="footer-content">
-    <img src="/logos/JessicaAkermanSquare.svg" alt="Jessica Akerman logo" width="40" height="40" class="footer-logo">
-    <p>&copy; 2025 {{ metadata.author.name }} | All rights reserved</p>
-</div>
+<p>&copy; 2025 {{ metadata.author.name }} | All rights reserved</p>
 </footer>
 
 <script type="module" src="{% getBundleFileUrl "js" %}"></script>

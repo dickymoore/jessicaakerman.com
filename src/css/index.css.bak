@@ -251,15 +251,3 @@ footer {
 .post-metadata time {
 	margin-right: 1em;
 }
-/* Footer with logo */
-.footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.footer-logo {
-    width: 40px;
-    height: 40px;
-}
