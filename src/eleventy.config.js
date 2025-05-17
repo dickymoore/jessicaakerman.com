@@ -27,7 +27,6 @@ export default async function(eleventyConfig) {
       "./public/img/": "/img/",
       "./logos/": "/logos/"
     })
-    .addPassthroughCopy("./content/feed/pretty-atom-feed.xsl");
 
   // ─── Watch Targets ───────────────────────────────────────────────────────
   eleventyConfig.addWatchTarget("css/**/*.css");
@@ -67,22 +66,6 @@ export default async function(eleventyConfig) {
   eleventyConfig.addPlugin(HtmlBasePlugin);
   eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
   eleventyConfig.addPlugin(pluginFilters);
-  eleventyConfig.addPlugin(feedPlugin, {
-    type: "atom",
-    outputPath: "/feed/feed.xml",
-    stylesheet: "pretty-atom-feed.xsl",
-    templateData: {
-      eleventyNavigation: { key: "Feed", order: 4 }
-    },
-    collection: { name: "posts", limit: 10 },
-    metadata: {
-      language: "en",
-      title: "Blog Title",
-      subtitle: "This is a longer description about your blog.",
-      base: "https://example.com/",
-      author: { name: "Your Name" }
-    }
-  });
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     formats: ["avif", "webp", "auto"],
     failOnError: false,

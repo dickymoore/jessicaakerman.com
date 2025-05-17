@@ -70,10 +70,13 @@ body {
 	width: 1px;
 }
 
-/* Fluid images via https://www.zachleat.com/web/fluid-images/ */
 img {
-  max-width: 100%;
-  height: auto;
+display: block;
+max-width: 75%;
+height: auto;
+margin: 5px auto; /* Center align horizontally */
+text-align: center;
+
 }
 img[width][height] {
   height: auto;
@@ -169,8 +172,10 @@ footer {
 	font-size: 0.9rem;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
+	position: relative;
 }
 .nav-item {
+	position: relative;
 	display: inline-block;
 }
 .nav-item a[href]:hover {
@@ -179,7 +184,83 @@ footer {
 .nav a[href][aria-current="page"] {
 	text-decoration: underline;
 }
-
+.has-dropdown {
+	/* Add visual indicator for items with dropdowns */
+	padding-right: 1.2em;
+  }
+  
+  .has-dropdown:after {
+	content: "▼";
+	font-size: 0.6em;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+  }
+  
+  .dropdown-menu {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: var(--background-color);
+	min-width: 200px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+	padding: 0.5rem 0;
+	z-index: 1000;
+	border-radius: 4px;
+	list-style: none;
+  }
+  
+  .dropdown-item {
+	white-space: nowrap;
+	padding: 0;
+	display: block;
+  }
+  
+  .dropdown-item a {
+	display: block;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+  }
+  
+  .dropdown-item a:hover {
+	background-color: rgba(0,0,0,0.05);
+  }
+  
+  /* Show dropdown on hover */
+  .nav-item:hover .dropdown-menu {
+	display: block;
+  }
+  
+  /* Add responsive behavior */
+  @media (max-width: 768px) {
+	.nav {
+	  display: block;
+	  width: 100%;
+	}
+	
+	.nav-item {
+	  display: block;
+	  margin-bottom: 0.5rem;
+	}
+	
+	.dropdown-menu {
+	  position: static;
+	  box-shadow: none;
+	  padding-left: 1rem;
+	  display: none;
+	}
+	
+	.has-dropdown:after {
+	  right: auto;
+	  margin-left: 0.5rem;
+	}
+	
+	/* For mobile, we could use a click-based approach instead of hover */
+	/* This would require a small JavaScript addition */
+  }
+  
 /* Home page */
 .featured-work {
 	margin: 2rem 0;

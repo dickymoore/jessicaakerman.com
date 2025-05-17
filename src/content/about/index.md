@@ -4,26 +4,20 @@ layout: layouts/base.njk
 eleventyNavigation:
   key: "About"
   order: 10
-date: 2019-05-09
----![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/image-asset.jpeg)
+date: 2024-02-01
+---# About
 
-Photo by Fern Insh, 2017.
+![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Jessica-Akerman.jpg)
 
-# About
+Jessica Akerman
 
-Jessica Akerman is an artist and maker.
+“Cankles, arthritic toes, horns, claws, beaks, varicose veins and tongues are recurrent images in my work. Vibrant colour is a central character; the fluorescents of market signage, or Microsoft’s default colour palette. Domestic crafts and interior design are often present, for example in upholstered details, or decorative castors.”
 
-Trained in sculpture and drawing, her work is inspired by social histories, and is expressed in a variety of media. Ongoing themes include military architecture and accessories, gentrification, women's working lives and material processes.
+## Jessica Akerman works across textiles, sculpture, drawing, painting and assemblage.
 
-Her recent wearable artworks are made by hand in sustainable leather offcuts, cork, embroidery and veneer. 
+## She is interested in how the body interacts with everyday realities, such as the act of labour, dressing, and the awkwardness of being a body amongst others, and how these relate to the places in which they exist. Bodies often appear as fragmented parts, or shapes stand in for Human or animal forms. Through humour, joy, discomfort and embarrassment, she explores the line between what is hidden and what is revealed.
 
-In 2018 she celebrated the centenary of women's suffrage with a collectable sew-on patch launched each month. 30% of sales from all patches will go to three charities supporting women and gender equality.
+## The systems and codes constructed to give, meaning, support, or to exert control are often incorporated into the process of making; for example, simulating work songs to try and capture the gestures of labour; exploring how colonial trade changed the flora of a place; or using spreadsheets to create absurdly decorative largescale drawings.
 
-As one of 100 female Lead Artists for _Processions 2018,_ she worked with Made in Roath on a suffrage banner inspired by dazzle ships, with accompanying cardboard armour.
-
-In 2017 she launched _Gerimus,_ finely foil embossed pendants and brooches featuring British Early Warning System architecture.
-
-The _Eyes Open Open Eyes_ brooch series also alludes to surveillance culture, and staying aware in a world where the politics of division is on the rise.
-
-Jessica programmes arts projects and events, such as the Engage conference 2018 at The Whitworth in Manchester on arts and health. She also delivers creative workshops, such as her popular Feminist Badgemaking and Brexit Badgemaking workshops. She is the co-convenor of [_Thinking Drawing 1960 to Now_](https://courtauld.ac.uk/event/contemporary-drawing-1960-to-now), a symposium in 2019 on contemporary drawing at The Courtauld Institute of Art.
-
+## She is based in Bristol, UK.
+[](https://www.instagram.com/jessica.akerman/)

@@ -3,7 +3,7 @@ layout: layouts/base.njk
 title: Archive
 eleventyNavigation:
   key: Archive
-  order: 6
+  order: 7
 ---
 
 # Archive

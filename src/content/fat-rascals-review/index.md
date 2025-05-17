@@ -1,9 +1,10 @@
 ---
-title: "Home - Video"
+title: "Fat Rascals Review"
 layout: layouts/base.njk
 eleventyNavigation:
-  key: "Home - Video"
+  key: "Fat Rascals Review"
   order: 10
+  parent: Archive
 date: 2023-11-01
 ---![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/20%25Fat+Rascals+invitation+-+Jessica+Akerman+copy.jpeg)
 

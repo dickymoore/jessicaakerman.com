@@ -4,6 +4,7 @@ layout: layouts/base.njk
 eleventyNavigation:
   key: "Fat-Rascals 2"
   order: 10
+  parent: Archive
 date: 2023-08-25
 ---[Instagram](https://www.instagram.com/jessica.akerman)
 

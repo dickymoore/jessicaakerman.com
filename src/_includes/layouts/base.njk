@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title or metadata.title }}</title>
   <meta name="description" content="{{ description or metadata.description }}">
-  <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
   <link rel="icon" href="/logos/JessicaAkermanSquare.svg" type="image/svg+xml">
 
   {#— Add the contents of CSS files to the bundle —#}
@@ -20,32 +19,31 @@
     <a href="/" class="logo">
       <img src="/logos/JessicaAkermanRectangle.svg" alt="{{ metadata.title }}" width="800" height="133">
     </a>
+<nav>
+  <h2 class="visually-hidden">Navigation menu</h2>
+  <ul class="nav">
+    {%- for item in collections.all | eleventyNavigation -%}
+      <li class="nav-item{% if item.children and item.children.length %} has-dropdown{% endif %}">
+        <a href="{{ item.url }}" {% if page.url==item.url %}aria-current="page"{% endif %}>
+          {{ item.title }}
+        </a>
 
-    <nav>
-      <h2 class="visually-hidden">Navigation menu</h2>
-      <ul class="nav">
-  {%- for item in collections.all | eleventyNavigation -%}
-    <li class="nav-item">
-      <a href="{{ item.url }}" {% if page.url==item.url %}aria-current="page"{% endif %}>
-        {{ item.data.eleventyNavigation.key }}
-      </a>
-
-      {%- if item.children and item.children | length -%}
-        <ul class="subnav">
-          {%- for child in item.children -%}
-            <li class="nav-item">
-              <a href="{{ child.url }}"
-                 {% if page.url==child.url %}aria-current="page"{% endif %}>
-                {{ child.data.eleventyNavigation.key }}
-              </a>
-            </li>
-          {%- endfor -%}
-        </ul>
-      {%- endif -%}
-    </li>
-  {%- endfor -%}
-</ul>
-
+        {%- if item.children and item.children.length -%}
+          <ul class="dropdown-menu">
+            {%- for child in item.children -%}
+              <li class="dropdown-item">
+                <a href="{{ child.url }}"
+                   {% if page.url==child.url %}aria-current="page"{% endif %}>
+                  {{ child.title }}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>
     </nav>
   </header>
 

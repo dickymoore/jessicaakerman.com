@@ -53,6 +53,7 @@
 		"@sindresorhus/slugify": "^2.1.0",
 		"@zachleat/heading-anchors": "^1.0.3",
 		"decap-cms": "^3.6.2",
+		"markdown-it-anchor": "^9.2.0",
 		"turndown": "^7.1.2",
 		"xml2js": "^0.6.2"
 	}

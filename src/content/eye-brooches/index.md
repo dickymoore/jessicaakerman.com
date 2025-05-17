@@ -4,6 +4,7 @@ layout: layouts/base.njk
 eleventyNavigation:
   key: "Eye brooches"
   order: 10
+  parent: Archive
 date: 2017-06-29
 ---# About
 
