@@ -8,4 +8,3 @@ eleventyNavigation:
 
 # Archive
 
-Content coming soon.

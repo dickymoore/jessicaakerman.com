@@ -1,11 +1,10 @@
 ---
 layout: layouts/base.njk
-title: Works on Paper
+title: Paper Works
 eleventyNavigation:
-  key: Works on paper
+  key: Paper Works
   order: 4
+  parent: Works on paper
 ---
 
 # Works on Paper
-
-Content coming soon.

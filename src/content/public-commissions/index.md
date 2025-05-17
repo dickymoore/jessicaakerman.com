@@ -8,4 +8,3 @@ eleventyNavigation:
 
 # Public Commissions
 
-Content coming soon.

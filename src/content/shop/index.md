@@ -8,4 +8,3 @@ eleventyNavigation:
 
 # Shop
 
-Content coming soon.

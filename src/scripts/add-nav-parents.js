@@ -12,7 +12,7 @@ import matter from "gray-matter";
 // ✏️  Adjust these slugs if your folders differ from these names
 const mapping = {
   "Works on paper": [
-    "works-on-paper",
+    "paper-works",
     "artist-parent-drawings"
   ],
   "Public commissions": [
@@ -45,7 +45,7 @@ const mapping = {
   ]
 };
 
-const contentDir = path.join(process.cwd(), "src", "content");
+const contentDir = path.join(process.cwd(), "", "content");
 
 for (let [parentKey, childSlugs] of Object.entries(mapping)) {
   for (let slug of childSlugs) {

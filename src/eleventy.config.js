@@ -47,7 +47,6 @@ export default async function(eleventyConfig) {
   eleventyConfig.addShortcode("artworkImage", function(title, size = "medium") {
     const artwork = this.ctx.artwork;
     if (!artwork.images[title]) {
-      console.warn(`Warning: No image found for "${title}"`);
       return "";
     }
     const img = artwork.images[title];
@@ -63,7 +62,6 @@ export default async function(eleventyConfig) {
   });
 
   // ─── Plugins ────────────────────────────────────────────────────────────
-  eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(pluginSyntaxHighlight, { preAttributes: { tabindex: 0 } });
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(HtmlBasePlugin);
