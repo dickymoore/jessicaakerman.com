@@ -12,4 +12,4 @@ date: 2022-12-22
 
 Jessica Akerman explores histories and place through objects, sculpture and installation. Cultural artefacts - such as folk songs, Excel spreadsheets or military symbols - are a starting point to visualise modes of communication and social structures. Her work is often site responsive, and characterised by vibrant colours and an exploration of materials.
 
-](https://www.instagram.com/jessica.akerman/)
+[Instagram Profile](https://www.instagram.com/jessica.akerman/)
