@@ -71,20 +71,25 @@ body {
 }
 
 img {
-display: block;
-max-width: 75%;
-height: auto;
-margin: 5px auto; /* Center align horizontally */
-text-align: center;
-
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: 5px auto;
 }
+
 img[width][height] {
   height: auto;
 }
+
+@media (min-width: 768px) {
+	img {
+	  max-width: 75%;
+	}
+  }
+  
 img[src$=".svg"] {
   width: 100%;
   height: auto;
-  max-width: none;
 }
 video,
 iframe {
@@ -130,6 +135,7 @@ header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	position: relative;
 }
 
 .logo {
@@ -159,7 +165,33 @@ footer {
 	margin-top: 2rem;
 	font-size: 0.9rem;
 }
+/* Footer with logo */
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
 
+.footer-logo {
+    width: 60px;
+    height: 60px;
+    max-width: 60px; /* Add this to override the 75% */
+}
+
+/* Add this specific override for SVG in the footer */
+.footer-logo[src$=".svg"] {
+    width: 60px;
+    height: 60px;
+    max-width: 60px;
+}
+
+footer p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 60px; /* Match the height of the logo */
+}
 /* Nav */
 .nav {
 	display: flex;
@@ -173,6 +205,7 @@ footer {
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
 	position: relative;
+	transition: max-height 0.3s ease-out;
 }
 .nav-item {
 	position: relative;
@@ -187,18 +220,18 @@ footer {
 .has-dropdown {
 	/* Add visual indicator for items with dropdowns */
 	padding-right: 1.2em;
-  }
+}
   
-  .has-dropdown:after {
+.has-dropdown:after {
 	content: "▼";
 	font-size: 0.6em;
 	position: absolute;
 	right: 0;
 	top: 50%;
 	transform: translateY(-50%);
-  }
+}
   
-  .dropdown-menu {
+.dropdown-menu {
 	display: none;
 	position: absolute;
 	top: 100%;
@@ -210,56 +243,106 @@ footer {
 	z-index: 1000;
 	border-radius: 4px;
 	list-style: none;
-  }
+}
   
-  .dropdown-item {
+.dropdown-item {
 	white-space: nowrap;
 	padding: 0;
 	display: block;
-  }
+}
   
-  .dropdown-item a {
+.dropdown-item a {
 	display: block;
 	padding: 0.5rem 1rem;
 	text-decoration: none;
-  }
+}
   
-  .dropdown-item a:hover {
+.dropdown-item a:hover {
 	background-color: rgba(0,0,0,0.05);
-  }
+}
   
-  /* Show dropdown on hover */
-  .nav-item:hover .dropdown-menu {
-	display: block;
-  }
+/* Show dropdown on hover - desktop only */
+@media (min-width: 769px) {
+    .nav-item:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+.mobile-nav-toggle {
+	display: none;
+	background: none;
+	border: none;
+	font-size: 1.5rem;
+	cursor: pointer;
+	padding: 0.5rem;
+	z-index: 2000;
+	margin: 0.5rem auto;
+}
+
+.dropdown-active > a {
+	background-color: rgba(0,0,0,0.03);
+}
   
-  /* Add responsive behavior */
-  @media (max-width: 768px) {
-	.nav {
-	  display: block;
-	  width: 100%;
+/* Add responsive behavior */
+@media (max-width: 768px) {
+	header {
+		position: relative;
 	}
 	
-	.nav-item {
-	  display: block;
-	  margin-bottom: 0.5rem;
+	.mobile-nav-toggle {
+		display: block;
+		position: relative;
+		/* Changed positioning to be after logo instead of absolute */
+		top: auto;
+		right: auto;
+		margin-bottom: 1rem;
+	}
+	
+	.nav-item a,
+	.dropdown-item a {
+		padding: 0.75rem;
+		display: block;
+	}
+	
+	nav {
+		width: 100%;
+	}
+	
+	.nav {
+		display: none;
+		width: 100%;
+		max-height: 0;
+		overflow: hidden;
+		flex-direction: column;
+		align-items: center;
 	}
 	
 	.dropdown-menu {
-	  position: static;
-	  box-shadow: none;
-	  padding-left: 1rem;
-	  display: none;
+		width: 100%;
+		background-color: rgba(0,0,0,0.02);
+		position: static;
+		box-shadow: none;
 	}
 	
-	.has-dropdown:after {
-	  right: auto;
-	  margin-left: 0.5rem;
+	.nav.show {
+		display: flex;
+		max-height: 2000px;
 	}
 	
-	/* For mobile, we could use a click-based approach instead of hover */
-	/* This would require a small JavaScript addition */
-  }
+	.logo {
+		max-width: 90%;
+	}
+	
+	.projects-grid {
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	}
+	
+	.nav-item {
+		width: 100%;
+		text-align: center;
+		margin-bottom: 0.5em;
+	}
+}
   
 /* Home page */
 .featured-work {
@@ -322,97 +405,4 @@ footer {
 	font-style: italic;
 }
 
-/* Tags list */
-.post-metadata {
-	display: inline-flex;
-	flex-wrap: wrap;
-	gap: .5em;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-.post-metadata time {
-	margin-right: 1em;
-}
-/* Footer with logo */
-.footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.footer-logo {
-    width: 60px;
-    height: 60px;
-}
-
-footer p {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    height: 60px; /* Match the height of the logo */
-}
-
-@media (max-width: 480px) {
-    .footer-content {
-        flex-direction: column;
-    }
-    
-    .footer-logo {
-        margin-bottom: 0.5rem;
-    }
-    
-    footer p {
-        height: auto;
-        text-align: center;
-    }
-}
-/* Responsive behavior for smaller screens */
-@media (max-width: 768px) {
-    .logo {
-        max-width: 90%; /* Limit logo width on small screens */
-    }
-    
-    .nav {
-        gap: 1em;
-        font-size: 0.8rem;
-    }
-    
-    .projects-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        padding: 1rem 0.5rem;
-    }
-    
-    .logo {
-        max-width: 95%;
-        margin-bottom: 1rem;
-    }
-    
-    .nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5em;
-    }
-    
-    .nav-item {
-        margin-bottom: 0.5em;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-    }
-    
-    .footer-logo {
-        margin-bottom: 0.5rem;
-    }
-}
+/* Tags list
