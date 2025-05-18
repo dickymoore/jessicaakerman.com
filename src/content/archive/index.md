@@ -4,6 +4,7 @@ title: Archive
 eleventyNavigation:
   key: Archive
   order: 21
+  exclude: true
 ---
 
 [![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Engorged.jpg)](./fat-rascals)
