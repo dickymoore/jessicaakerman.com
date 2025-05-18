@@ -18,18 +18,18 @@
     <!-- Inline the navigation JavaScript as a fallback method -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOM loaded - inline navigation script running');
+      
       
       // Handle mobile menu toggle
       const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
       const nav = document.querySelector('.nav');
       
       if (mobileNavToggle && nav) {
-        console.log('Menu elements found');
+        
         
         mobileNavToggle.addEventListener('click', function(e) {
           e.preventDefault();
-          console.log('Toggle clicked');
+          
           
           // Toggle the show class on the navigation
           nav.classList.toggle('show');
