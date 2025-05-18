@@ -31,32 +31,7 @@ export default function() {
     }
   };
 
-//   try {
-//     // Path to your CSV file
-//     const csvFilePath = path.join(__dirname, 'assets/images.csv');
-    
-//     // Check if file exists
-//     if (!fs.existsSync(csvFilePath)) {
-//       console.error(`CSV file not found at ${csvFilePath}`);
-//       return fallbackData;
-//     }
-    
-//     // Read the CSV file
-//     const csvFile = fs.readFileSync(csvFilePath, 'utf8');
-//     console.log("CSV file loaded successfully");
-    
-//     // Skip the first line if it's a comment/URL
-//     let csvContent = csvFile;
-//     if (csvFile.startsWith('#')) {
-//       const lines = csvFile.split('\n');
-//       csvContent = lines.slice(1).join('\n');
-//     }
-    
-//     // Parse the CSV
-//     const results = Papa.parse(csvContent, {
-//       header: true,
-//       skipEmptyLines: true,
-//       // Add this to handle CSV issues
+// The commented-out CSV parsing code has been removed to improve code clarity and maintainability.
 //       dynamicTyping: true,
 //       delimiter: ",",
 //       transform: (value) => {
