@@ -2,7 +2,6 @@ import { IdAttributePlugin, InputPathToUrlTransformPlugin, HtmlBasePlugin } from
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import pluginFilters from "./_config/filters.js";
 import { DateTime } from "luxon";
 import util from "util";
@@ -66,12 +65,6 @@ export default async function(eleventyConfig) {
   eleventyConfig.addPlugin(HtmlBasePlugin);
   eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
   eleventyConfig.addPlugin(pluginFilters);
-  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-    formats: ["avif", "webp", "auto"],
-    failOnError: false,
-    htmlOptions: { imgAttributes: { loading: "lazy", decoding: "async" } },
-    sharpOptions: { animated: true }
-  });
   eleventyConfig.addPlugin(IdAttributePlugin, {
     // Default slugify and selectors will be used
   });
