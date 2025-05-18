@@ -58,7 +58,34 @@ export default async function(eleventyConfig) {
   eleventyConfig.addShortcode("currentBuildDate", () => {
     return new Date().toISOString();
   });
+  /* ------------------------------------------------------------------
+    Cloudflare Image Resizing helpers
+    -----------------------------------------------------------------*/
+    const cfBase = "/cdn-cgi/image";                // keep default zone rules
 
+    /**
+      * cfImg  – returns a single resized URL
+      * Usage  – {{ cfImg(src, 'width=800,quality=80') }}
+      */
+    eleventyConfig.addNunjucksShortcode("cfImg", (src, opts = "") => {
+      if (!src) return "";
+      // allow absolute or relative paths
+      const clean = src.replace(/^https?:\/\/[^/]+/, "");
+      return `${cfBase}/${opts}/${clean}`;
+    });
+    
+    /**
+      * cfSet – returns a ready-to-paste srcset string
+      * Usage – <img src="{{ cfImg(file,'width=400') }}"
+      *             {{ cfSet(file,[400,800,1200]) }} … >
+      */
+    eleventyConfig.addShortcode("cfSet", (src, widths = [400, 800, 1200]) => {
+      const clean = src.replace(/^https?:\/\/[^/]+/, "");
+      return `srcset="${widths
+        .map(w => `${cfBase}/width=${w}/${clean} ${w}w`)
+        .join(", ")}"`;
+    });
+   
   // ─── Plugins ────────────────────────────────────────────────────────────
   eleventyConfig.addPlugin(pluginSyntaxHighlight, { preAttributes: { tabindex: 0 } });
   eleventyConfig.addPlugin(pluginNavigation);
