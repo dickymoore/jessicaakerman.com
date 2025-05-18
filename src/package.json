@@ -11,7 +11,8 @@
 		"start-ghpages": "npx @11ty/eleventy --pathprefix=/eleventy-base-blog/ --serve --quiet",
 		"debug": "cross-env DEBUG=Eleventy* npx @11ty/eleventy",
 		"debugstart": "cross-env DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
-		"benchmark": "cross-env DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"
+		"benchmark": "cross-env DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
+		"import:wp": "node scripts/import-wp.js"
 	},
 	"repository": {
 		"type": "git",
@@ -41,13 +42,19 @@
 		"@11ty/eleventy-plugin-rss": "^2.0.3",
 		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
 		"cross-env": "^7.0.3",
+		"gray-matter": "^4.0.3",
 		"luxon": "^3.6.1",
+		"papaparse": "^5.5.2",
 		"prismjs": "^1.30.0",
 		"zod": "^3.24.3",
 		"zod-validation-error": "^3.4.0"
 	},
 	"dependencies": {
+		"@sindresorhus/slugify": "^2.1.0",
 		"@zachleat/heading-anchors": "^1.0.3",
-		"decap-cms": "^3.6.2"
+		"decap-cms": "^3.6.2",
+		"markdown-it-anchor": "^9.2.0",
+		"turndown": "^7.1.2",
+		"xml2js": "^0.6.2"
 	}
 }

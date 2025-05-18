@@ -1,69 +1,195 @@
 <!doctype html>
 <html lang="{{ metadata.language }}">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{{ title or metadata.title }}</title>
-		<meta name="description" content="{{ description or metadata.description }}">
-		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or metadata.title }}</title>
+    <meta name="description" content="{{ description or metadata.description }}">
+    <link rel="icon" href="/logos/JessicaAkermanSquare.svg" type="image/svg+xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    {#— Add the contents of CSS files to the bundle —#}
+    <style>{% include "css/index.css" %}</style>
+    {#— Render the CSS bundle using inlined CSS —#}
+    <style>{% getBundle "css" %}</style>
+    
+    <!-- Inline the navigation JavaScript as a fallback method -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      
+      // Handle mobile menu toggle
+      const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+      const nav = document.querySelector('.nav');
+      
+      if (mobileNavToggle && nav) {
+        
+        
+        mobileNavToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          
+          // Toggle the show class on the navigation
+          nav.classList.toggle('show');
+          
+          // Update the aria-expanded attribute for accessibility
+          const expanded = nav.classList.contains('show');
+          mobileNavToggle.setAttribute('aria-expanded', expanded);
+          
+          console.log('Menu toggle clicked, nav show state:', expanded);
+        });
+      } else {
+        console.log('Menu elements not found', { mobileNavToggle, nav });
+      }
+      
+      // Mobile dropdown toggle
+      const dropdownItems = document.querySelectorAll('.has-dropdown');
+      console.log('Found dropdown items:', dropdownItems.length);
+      
+      dropdownItems.forEach(item => {
+        const link = item.querySelector('a');
+        
+        if (link) {
+          link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+              // Only for mobile view
+              e.preventDefault();
+              
+              // Find the dropdown menu
+              const dropdown = item.querySelector('.dropdown-menu');
+              console.log('Dropdown item clicked', dropdown);
+              
+              if (dropdown) {
+                // Close all other dropdowns first
+                document.querySelectorAll('.has-dropdown .dropdown-menu').forEach(menu => {
+                  if (menu !== dropdown) {
+                    menu.style.display = 'none';
+                  }
+                });
+                
+                // Toggle this dropdown
+                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                
+                // Toggle active class
+                item.classList.toggle('dropdown-active');
+              }
+            }
+          });
+        }
+      });
+      
+      // Handle clicks outside the navigation
+      document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          // If clicking outside nav and not on the toggle button
+          if (!e.target.closest('.nav') && !e.target.closest('.mobile-nav-toggle')) {
+            // Hide all dropdown menus
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+              menu.style.display = 'none';
+            });
+            
+            // Remove active class from all items
+            document.querySelectorAll('.dropdown-active').forEach(item => {
+              item.classList.remove('dropdown-active');
+            });
+          }
+        }
+      });
+      
+      // Reset styles on resize
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+          // Reset all dropdown menus
+          document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.style.display = '';
+          });
+          
+          // Reset active classes
+          document.querySelectorAll('.dropdown-active').forEach(item => {
+            item.classList.remove('dropdown-active');
+          });
+        }
+      });
+    });
+    </script>
+  </head>
 
-		{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
-		{#- <meta name="generator" content="{{ eleventy.generator }}"> #}
+  <body>
+    <a href="#skip" class="visually-hidden">Skip to main content</a>
+    <header>
+      <a href="/" class="logo">
+        <img src="/logos/JessicaAkermanRectangle.svg" alt="{{ metadata.title }}" width="800" height="133">
+      </a>
+      <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="nav">
+        <span class="visually-hidden">Menu</span>
+        ☰
+      </button>
+      <nav>
+        <h2 class="visually-hidden">Navigation menu</h2>
+        <ul class="nav" id="nav">
+          {%- for item in collections.all | eleventyNavigation -%}
+            <li class="nav-item{% if item.children and item.children.length %} has-dropdown{% endif %}">
+              <a href="{{ item.url }}" {% if page.url==item.url %}aria-current="page"{% endif %}>
+                {{ item.title }}
+              </a>
 
-		{#-
-		Plain-text bundles are provided via the `eleventy-plugin-bundle` plugin:
-		1. CSS:
-			* Add to a per-page bundle using `{% css %}{% endcss %}`
-			* Retrieve bundle content using `{% getBundle "css" %}` or `{% getBundleFileUrl "css" %}`
-		2. Or for JavaScript:
-			* Add to a per-page bundle using `{% js %}{% endjs %}`
-			* Retrieve via `{% getBundle "js" %}` or `{% getBundleFileUrl "js" %}`
-		3. Learn more: https://github.com/11ty/eleventy-plugin-bundle
-		#}
+              {%- if item.children and item.children.length -%}
+                <ul class="dropdown-menu">
+                  {%- for child in item.children -%}
+                    <li class="dropdown-item">
+                      <a href="{{ child.url }}"
+                        {% if page.url==child.url %}aria-current="page"{% endif %}>
+                        {{ child.title }}
+                      </a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    </header>
 
-		{#- Add an arbitrary string to the bundle #}
-		<style>/* This is an arbitrary CSS string added to the bundle */</style>
-		{#- Add the contents of a file to the bundle #}
-		<style>{% include "css/index.css" %}</style>
-		{#- Or you can add from node_modules #}
-		{# <style>{% include "node_modules/prismjs/themes/prism-okaidia.css" %}</style> #}
+    <main id="skip">
+      {{ content | safe }}
+    </main>
 
-		{#- Render the CSS bundle using inlined CSS (for the fastest site performance in production) #}
-		<style>{% getBundle "css" %}</style>
-		{#- Renders the CSS bundle using a separate file, if you can't set CSP directive style-src: 'unsafe-inline' #}
-		{#- <link rel="stylesheet" href="{% getBundleFileUrl "css" %}"> #}
+    <footer>
+      <div class="footer-content">
+        <img src="/logos/JessicaAkermanSquare.svg"
+        alt="Jessica Akerman logo"
+        width="60" height="60"
+        class="footer-logo icon">
+        <p>&copy; {{ "now" | date("yyyy") }} {{ metadata.author.name }} | All rights reserved</p>
+      </div>
+    </footer>
 
-		{#- Add the heading-anchors web component to the JavaScript bundle #}
-		<script type="module">{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}</script>
-	</head>
-	<body>
-		<a href="#skip" class="visually-hidden">Skip to main content</a>
-
-		<header>
-			<a href="/" class="home-link">{{ metadata.title }}</a>
-
-			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-			<nav>
-				<h2 class="visually-hidden">Top level navigation menu</h2>
-				<ul class="nav">
-				{%- for entry in collections.all | eleventyNavigation %}
-					<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
-				{%- endfor %}
-				</ul>
-			</nav>
-		</header>
-
-		<main id="skip">
-			<heading-anchors>
-				{{ content | safe }}
-			</heading-anchors>
-		</main>
-
-		<footer>
-			<p><em>Built with <a href="https://www.11ty.dev/">{{ eleventy.generator }}</a></em></p>
-		</footer>
-
-		<!-- This page `{{ page.url }}` was built on {% currentBuildDate %} -->
-		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
-	</body>
+    <script type="module" src="{% getBundleFileUrl "js" %}"></script>
+    
+    <!-- Try different paths for the navigation script -->
+    <script>
+      function loadScript(src) {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = src;
+          script.onload = () => resolve();
+          script.onerror = () => {
+            console.warn(`Failed to load script from: ${src}`);
+            reject();
+          };
+          document.head.appendChild(script);
+        });
+      }
+      
+      // Try loading from various possible paths
+      loadScript('/js/navigation.js')
+        .catch(() => loadScript('./js/navigation.js'))
+        .catch(() => loadScript('../js/navigation.js'))
+        .catch(() => loadScript('/src/js/navigation.js'))
+        .catch(() => console.log('All script loading attempts failed. Using inline fallback.'));
+    </script>
+  </body>
 </html>

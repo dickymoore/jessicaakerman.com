@@ -1,0 +1,8 @@
+---
+title: "Works on paper"
+layout: layouts/base.njk
+eleventyNavigation:
+  key: "Works on paper"
+  order: 5
+date: 2025-03-02
+---![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Aurora_Jug.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/20231122_132502.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/20230605_155504.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/20230608_173517.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Foot-Jessica-Akerman.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/image11.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/1.Reactor-Stack_Jessica_Akerman_2023.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Sill.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/10%25Jessica+Akerman+27+Dec+2022+Studio+Visit+Jo+Hounsome+Photography+copy.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/10%25Jessica+Akerman+26+Dec+2022+Studio+Visit+Jo+Hounsome+Photography+copy.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Deteriorating+arch.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Vase+Dentata.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/Hot+Legs.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/10%25Jessica+Akerman+28+Dec+2022+Studio+Visit+Jo+Hounsome+Photography+copy.jpg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/10%25Jessica+Akerman+25+Dec+2022+Studio+Visit+Jo+Hounsome+Photography+copy.jpg)

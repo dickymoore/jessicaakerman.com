@@ -29,8 +29,13 @@ export default function(eleventyConfig) {
 	});
 
 	// Return the keys used in an object
-	eleventyConfig.addFilter("getKeys", target => {
-		return Object.keys(target);
+	eleventyConfig.addFilter("keys", obj => {
+		return Object.keys(obj);
+	});
+	
+	// Add getKeys filter - same functionality as keys but matches original template
+	eleventyConfig.addFilter("getKeys", obj => {
+		return Object.keys(obj);
 	});
 
 	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {

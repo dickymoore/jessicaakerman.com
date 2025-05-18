@@ -1,0 +1,10 @@
+---
+title: Fabric drawing
+layout: layouts/base.njk
+eleventyNavigation:
+  key: Fabric drawing
+  order: 10
+  parent: Sculpture
+date: 2025-03-02T00:00:00.000Z
+---
+![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/10%25adjusted+Jessica+Ackerman+03Dec+2022+Jo+Hounsome+Photography+copy+2.jpeg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/12%25Jessica+Ackerman+09+Dec+2022+Studio+Visit+Jo+Hounsome+Photography+copy.jpeg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/12%25adjusted+Jessica+Ackerman+08Dec+2022+Jo+Hounsome+Photography+copy.jpeg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/12%25adjusted+Jessica+Ackerman+07Dec+2022+Jo+Hounsome+Photography+copy.jpeg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/10%25adjusted+Jessica+Ackerman+04Dec+2022+Jo+Hounsome+Photography+copy+2.jpeg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/10%25adjusted+Jessica+Ackerman+02Dec+2022+Jo+Hounsome+Photography+copy+2.jpeg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/12%25adjusted+Jessica+Ackerman+10Dec+2022+Jo+Hounsome+Photography+copy.jpeg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/12%25adjusted+Jessica+Ackerman+06Dec+2022+Jo+Hounsome+Photography+copy.jpeg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/10%25adjusted+Jessica+Ackerman+12Dec+2022+Jo+Hounsome+Photography+copy.jpeg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/10%25adjusted+Jessica+Ackerman+05Dec+2022+Jo+Hounsome+Photography+copy+2.jpeg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/12%25Jessica+Ackerman+10+Dec+2022+Studio+Visit+Jo+Hounsome+Photography+copy.jpeg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/12%25+adjusted+Jessica+Ackerman+09Dec+2022+Jo+Hounsome+Photography+copy+2.jpeg)![](https://s3.eu-west-1.amazonaws.com/jessicaakerman.com/10%25adjusted+Jessica+Ackerman+11Dec+2022+Jo+Hounsome+Photography+copy.jpeg)

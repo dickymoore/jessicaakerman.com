@@ -1,0 +1,33 @@
+---
+title: "Home - Archive"
+layout: layouts/base.njk
+eleventyNavigation:
+  key: "Home - Archive"
+  order: 10
+  parent: Archive
+
+---
+
+<div class="projects-preview">
+  <h2>Recent Work</h2>
+  <div class="projects-grid">
+    {% for page in collections.wpPages %}
+      <article class="project-item">
+        <a href="{{ page.url }}">
+          <div class="project-image">
+            
+          </div>
+          <h3 class="project-title">
+            {{ page.data.title }}{% if page.date %}, {{ page.date | readableDate("yyyy") }}{% endif %}
+          </h3>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="about-preview">
+  <h2>About {{ metadata.author.name }}</h2>
+  <p>{{ metadata.description }}</p>
+  <p><a href="/about/">Read more about the artist →</a></p>
+</div>
