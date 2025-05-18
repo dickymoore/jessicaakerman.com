@@ -58,13 +58,13 @@ turndown.addRule("skipEmptyImgs", {
   replacement: () => "",
 });
 
-// S3 mapping built at Eleventy run-time
-import artworkModule from "../_data/artwork.js";                // parses assets/images.csv
-const { baseUrl, images } = artworkModule();
-const fileMap = Object.values(images).reduce((acc, { filename }) => {
-  acc[safeDecode(filename)] = baseUrl + filename;
-  return acc;
-}, {});
+// // S3 mapping built at Eleventy run-time
+// import artworkModule from "../_data/artwork.js";                // parses assets/images.csv
+// const { baseUrl, images } = artworkModule();
+// const fileMap = Object.values(images).reduce((acc, { filename }) => {
+//   acc[safeDecode(filename)] = baseUrl + filename;
+//   return acc;
+// }, {});
 
 turndown.addRule("rewriteImages", {
   filter: "img",
